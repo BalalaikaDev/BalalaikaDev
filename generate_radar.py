@@ -37,8 +37,10 @@ _PALETTE = ["#fcee0a", "#00ff9c", "#ff63b4", "#ff8c00", "#5cebff", "#b388ff"]
 
 # Used when the API can't be reached (offline / rate-limited).
 FALLBACK = [
-    {"name": "runi-os", "tag": "OSINT PLATFORM", "bearing": 52, "range": 0.62, "size": 1.4, "color": "#fcee0a"},
-    {"name": "kindle-ai-export", "tag": "READER // FORK", "bearing": 218, "range": 0.48, "size": 0.7, "color": "#00ff9c"},
+    {"name": "runi-os", "url": "https://github.com/BalalaikaDev/runi-os",
+     "tag": "OSINT PLATFORM", "bearing": 52, "range": 0.62, "size": 1.4, "color": "#fcee0a"},
+    {"name": "kindle-ai-export", "url": "https://github.com/BalalaikaDev/kindle-ai-export",
+     "tag": "READER // FORK", "bearing": 218, "range": 0.48, "size": 0.7, "color": "#00ff9c"},
 ]
 
 W, H = 860, 400
@@ -100,15 +102,21 @@ def fetch_contacts() -> list[dict]:
         tag = f"{lang} // FORK" if fork else (f"{lang} · ★{stars}" if stars else lang)
         contacts.append({
             "name": name,
+            "url": r.get("html_url", f"https://github.com/{USER}/{name}"),
             "tag": tag[:34],
-            "bearing": _bearing(name),
             "range": round(rng, 2),
             "size": round(min(size, 1.8), 2),
             "color": _PALETTE[i % len(_PALETTE)],
             "stars": stars,
         })
-    # most prominent first, so the readout cards show the flagship repos
+    # most prominent first, so the readout cards list the flagship repos on top
     contacts.sort(key=lambda c: c["size"], reverse=True)
+    # Evenly space bearings around the scope so blips can never overlap, with a
+    # small per-index range stagger so labels stay clear even when lanes are near.
+    n = len(contacts)
+    for i, c in enumerate(contacts):
+        c["bearing"] = int((35 + i * 360 / n) % 360)
+        c["range"] = round(min(0.80, c["range"] + 0.05 * (i % 3)), 2)
     return contacts
 
 
@@ -183,7 +191,7 @@ def build(contacts):
     out.append(f'<line x1="{px}" y1="108" x2="{W-40}" y2="108" stroke="{GRID}" stroke-opacity="0.3"/>')
     out.append(f'<text x="{px}" y="134" font-size="11" fill="{DIM}" letter-spacing="1">CONTACTS TRACKED: {len(contacts):02d}</text>')
     y = 168
-    for i, c in enumerate(contacts[:MAX_CARDS]):
+    for i, c in enumerate(contacts):
         out.append(f'<rect x="{px}" y="{y-16}" width="{W-40-px}" height="42" rx="6" fill="{SURFACE}" stroke="{c["color"]}" stroke-opacity="0.35"/>')
         out.append(f'<circle cx="{px+16}" cy="{y+5}" r="4" fill="{c["color"]}" filter="url(#glow)"/>')
         out.append(f'<text x="{px+32}" y="{y+2}" font-size="14" font-weight="700" fill="{c["color"]}">{c["name"]}</text>')
@@ -199,6 +207,16 @@ def build(contacts):
 if __name__ == "__main__":
     path = sys.argv[1] if len(sys.argv) > 1 else "radar.svg"
     contacts = fetch_contacts() or FALLBACK
+    # grow the canvas so every contact gets a readout card, and re-centre the scope
+    n = len(contacts)
+    globals()["H"] = max(400, 168 + n * 56 + 44)
+    globals()["CY"] = globals()["H"] // 2
     with open(path, "w", encoding="utf-8") as fh:
         fh.write(build(contacts))
-    print(f"wrote {path} with {len(contacts)} contacts")
+    # drop a sidecar the README legend uses to render clickable, colour-matched links
+    legend = [{"name": c["name"], "color": c["color"],
+               "url": c.get("url", f"https://github.com/{USER}/{c['name']}")}
+              for c in contacts]
+    with open("radar.json", "w", encoding="utf-8") as fh:
+        json.dump(legend, fh, indent=2)
+    print(f"wrote {path} with {len(contacts)} contacts (H={globals()['H']})")

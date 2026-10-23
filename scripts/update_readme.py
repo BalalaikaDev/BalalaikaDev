@@ -16,10 +16,12 @@ import json
 import os
 import re
 import sys
+import urllib.parse
 import urllib.request
 
 USER = "BalalaikaDev"
 START, END = "<!-- PROJECTS:START -->", "<!-- PROJECTS:END -->"
+LEG_START, LEG_END = "<!-- LEGEND:START -->", "<!-- LEGEND:END -->"
 
 # Hand-written descriptions win over the repo's GitHub description, by repo name.
 OVERRIDES = {
@@ -89,6 +91,32 @@ def build_table() -> str | None:
     return "\n".join(lines)
 
 
+def build_legend() -> str | None:
+    """Clickable, colour-matched chips under the radar, from radar.json.
+
+    Each chip links to its repo — the closest thing to "clickable blips" that
+    GitHub allows, since an <img>-embedded SVG can't carry per-region links.
+    """
+    try:
+        legend = json.load(open("radar.json", encoding="utf-8"))
+    except Exception:
+        return None
+    chips = []
+    for c in legend:
+        label = urllib.parse.quote(c["name"].replace("-", "--").replace("_", "__"))
+        color = c["color"].lstrip("#")
+        badge = f"https://img.shields.io/badge/{label}-{color}?style=flat-square"
+        chips.append(f'  <a href="{c["url"]}"><img src="{badge}" alt="{c["name"]}"></a>')
+    return ('<p align="center">\n'
+            '  <sub>contacts (click to open):</sub><br>\n'
+            + "\n".join(chips) + "\n</p>")
+
+
+def _replace(text: str, start: str, end: str, body: str) -> str:
+    return re.sub(re.escape(start) + r".*?" + re.escape(end),
+                  f"{start}\n{body}\n{end}", text, flags=re.DOTALL)
+
+
 def main(path: str) -> int:
     table = build_table()
     if table is None:
@@ -97,12 +125,10 @@ def main(path: str) -> int:
     if START not in text or END not in text:
         print(f"error: markers {START} / {END} not found in {path}", file=sys.stderr)
         return 1
-    new = re.sub(
-        re.escape(START) + r".*?" + re.escape(END),
-        f"{START}\n{table}\n{END}",
-        text,
-        flags=re.DOTALL,
-    )
+    new = _replace(text, START, END, table)
+    legend = build_legend()
+    if legend and LEG_START in new and LEG_END in new:
+        new = _replace(new, LEG_START, LEG_END, legend)
     if new != text:
         open(path, "w", encoding="utf-8").write(new)
         print(f"updated {path}")
