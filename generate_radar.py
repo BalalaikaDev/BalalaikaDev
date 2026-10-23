@@ -4,10 +4,21 @@ Each project is a "contact" on the scope. The sweep is a pure SMIL animation
 (GitHub strips scripts from README images), and every blip flares exactly when
 the beam crosses it.
 
+Contacts are pulled live from the GitHub API, so adding a repo makes a new blip
+appear on the next run (scheduled Action). Falls back to a static list when the
+API is unavailable, so the banner always renders.
+
 Usage: python generate_radar.py [out.svg]
 """
+import datetime as dt
+import hashlib
+import json
 import math
+import os
 import sys
+import urllib.request
+
+USER = "BalalaikaDev"
 
 # Palette lifted from the Runi Shell (shell/frontend/style.css)
 BG = "#06070f"
@@ -18,10 +29,14 @@ TEXT = "#ccd6f0"
 DIM = "#6e79a8"
 
 SWEEP_SECONDS = 6
+MAX_BLIPS = 8         # plotted on the scope
+MAX_CARDS = 3         # listed in the readout panel (height-limited)
 
-# bearing: degrees clockwise from north; range: 0..1 of scope radius;
-# size scales the blip, so the flagship repo reads first
-CONTACTS = [
+# blip colours (avoid the cyan grid and magenta beam so contacts stand out)
+_PALETTE = ["#fcee0a", "#00ff9c", "#ff63b4", "#ff8c00", "#5cebff", "#b388ff"]
+
+# Used when the API can't be reached (offline / rate-limited).
+FALLBACK = [
     {"name": "runi-os", "tag": "OSINT PLATFORM", "bearing": 52, "range": 0.62, "size": 1.4, "color": "#fcee0a"},
     {"name": "kindle-ai-export", "tag": "READER // FORK", "bearing": 218, "range": 0.48, "size": 0.7, "color": "#00ff9c"},
 ]
@@ -29,6 +44,72 @@ CONTACTS = [
 W, H = 860, 400
 CX, CY, R = 200, 200, 170
 FONT = "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+
+
+def _bearing(name: str) -> int:
+    """Stable bearing per repo name, so a blip keeps its angle as repos are added."""
+    return int(hashlib.sha1(name.encode()).hexdigest(), 16) % 360
+
+
+def _days_since(iso: str) -> float:
+    try:
+        t = dt.datetime.fromisoformat(iso.replace("Z", "+00:00"))
+        return max(0.0, (dt.datetime.now(dt.timezone.utc) - t).total_seconds() / 86400)
+    except Exception:
+        return 365.0
+
+
+def fetch_contacts() -> list[dict]:
+    """Build the contact list from the user's public repos; [] on failure."""
+    req = urllib.request.Request(
+        f"https://api.github.com/users/{USER}/repos?sort=pushed&per_page=100",
+        headers={"Accept": "application/vnd.github+json", "User-Agent": f"{USER}-profile"},
+    )
+    token = os.getenv("GITHUB_TOKEN")
+    if token:
+        req.add_header("Authorization", f"Bearer {token}")
+    try:
+        with urllib.request.urlopen(req, timeout=20) as r:
+            repos = json.load(r)
+    except Exception as exc:
+        print(f"warning: could not fetch repos ({exc}); using fallback", file=sys.stderr)
+        return []
+
+    repos = [r for r in repos
+             if not r.get("archived") and r.get("name", "").lower() != USER.lower()]
+    if not repos:
+        return []
+    max_stars = max((r.get("stargazers_count", 0) for r in repos), default=0)
+    # flagship = most-starred, ties broken by most recently pushed (list is pushed-sorted)
+    flagship = max(repos, key=lambda r: (r.get("stargazers_count", 0),
+                                         -_days_since(r.get("pushed_at", "")))).get("name")
+
+    contacts = []
+    for i, r in enumerate(repos[:MAX_BLIPS]):
+        name = r["name"]
+        stars = r.get("stargazers_count", 0)
+        lang = (r.get("language") or "repo").upper()
+        fork = r.get("fork", False)
+        size = 0.75 + 0.55 * (stars / max_stars if max_stars else 0)
+        if name == flagship:
+            size = max(size, 1.4)
+        if fork:
+            size *= 0.85
+        days = _days_since(r.get("pushed_at", ""))
+        rng = 0.40 + 0.45 * min(days, 365) / 365          # fresher → closer to centre
+        tag = f"{lang} // FORK" if fork else (f"{lang} · ★{stars}" if stars else lang)
+        contacts.append({
+            "name": name,
+            "tag": tag[:34],
+            "bearing": _bearing(name),
+            "range": round(rng, 2),
+            "size": round(min(size, 1.8), 2),
+            "color": _PALETTE[i % len(_PALETTE)],
+            "stars": stars,
+        })
+    # most prominent first, so the readout cards show the flagship repos
+    contacts.sort(key=lambda c: c["size"], reverse=True)
+    return contacts
 
 
 def polar(bearing, frac):
@@ -42,7 +123,7 @@ def wedge(start, end):
     return f"M{CX},{CY} L{x1:.1f},{y1:.1f} A{R},{R} 0 0 1 {x2:.1f},{y2:.1f} Z"
 
 
-def build():
+def build(contacts):
     out = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" font-family="{FONT}">']
     out.append(f"""<defs>
   <radialGradient id="scope" cx="50%" cy="50%" r="50%">
@@ -83,7 +164,7 @@ def build():
     out.append(f'<circle cx="{CX}" cy="{CY}" r="3" fill="{BEAM}" filter="url(#glow)"/>')
 
     # contacts: flare when the beam passes, then decay
-    for c in CONTACTS:
+    for c in contacts:
         x, y = polar(c["bearing"], c["range"])
         begin = f'{SWEEP_SECONDS * c["bearing"] / 360:.2f}s'
         anim = (f'<animate attributeName="opacity" values="1;0.25;0.25" keyTimes="0;0.75;1" '
@@ -100,9 +181,9 @@ def build():
     out.append(f'<text x="{px}" y="64" font-size="30" font-weight="700" fill="{TEXT}" filter="url(#glow)">BALALAIKA<tspan fill="{BEAM}">DEV</tspan></text>')
     out.append(f'<text x="{px}" y="90" font-size="12" fill="{GRID}" letter-spacing="2">SIGINT CONSOLE // SCOPE ACTIVE<tspan>_<animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/></tspan></text>')
     out.append(f'<line x1="{px}" y1="108" x2="{W-40}" y2="108" stroke="{GRID}" stroke-opacity="0.3"/>')
-    out.append(f'<text x="{px}" y="134" font-size="11" fill="{DIM}" letter-spacing="1">CONTACTS TRACKED: {len(CONTACTS):02d}</text>')
+    out.append(f'<text x="{px}" y="134" font-size="11" fill="{DIM}" letter-spacing="1">CONTACTS TRACKED: {len(contacts):02d}</text>')
     y = 168
-    for i, c in enumerate(CONTACTS):
+    for i, c in enumerate(contacts[:MAX_CARDS]):
         out.append(f'<rect x="{px}" y="{y-16}" width="{W-40-px}" height="42" rx="6" fill="{SURFACE}" stroke="{c["color"]}" stroke-opacity="0.35"/>')
         out.append(f'<circle cx="{px+16}" cy="{y+5}" r="4" fill="{c["color"]}" filter="url(#glow)"/>')
         out.append(f'<text x="{px+32}" y="{y+2}" font-size="14" font-weight="700" fill="{c["color"]}">{c["name"]}</text>')
@@ -117,6 +198,7 @@ def build():
 
 if __name__ == "__main__":
     path = sys.argv[1] if len(sys.argv) > 1 else "radar.svg"
+    contacts = fetch_contacts() or FALLBACK
     with open(path, "w", encoding="utf-8") as fh:
-        fh.write(build())
-    print(f"wrote {path}")
+        fh.write(build(contacts))
+    print(f"wrote {path} with {len(contacts)} contacts")

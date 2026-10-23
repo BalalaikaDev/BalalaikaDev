@@ -1,0 +1,42 @@
+name: Update profile
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # every 6 hours
+  workflow_dispatch:         # manual run button
+  push:
+    branches: [main]
+    paths:                   # re-run when the generators themselves change
+      - "generate_radar.py"
+      - "scripts/**"
+      - ".github/workflows/now.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Regenerate from GitHub activity
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python generate_radar.py radar.svg
+          python scripts/generate_now.py now.svg
+          python scripts/update_readme.py README.md
+      - name: Commit if changed
+        run: |
+          if ! git diff --quiet -- radar.svg now.svg README.md; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add radar.svg now.svg README.md
+            git commit -m "chore: refresh profile (radar, now, projects) [skip ci]"
+            git push
+          else
+            echo "nothing changed"
+          fi

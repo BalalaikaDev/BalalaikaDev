@@ -39,11 +39,15 @@ Studying Electrical &amp; Automation Engineering, and building out this GitHub a
 
 ### Selected projects
 
+<!-- PROJECTS:START -->
+<!-- This table is auto-generated from GitHub by scripts/update_readme.py. -->
 | Project | What it is |
 | --- | --- |
-| **[runi-os](https://github.com/BalalaikaDev/runi-os)** | Self-hosted OSINT &amp; data platform — 45+ intelligence sources fused into one provenance-tracked Neo4j graph, an AI investigation engine, and a modular dashboard. Python · FastAPI · Docker · Neo4j. |
-| **[kindle-ai-export](https://github.com/BalalaikaDev/kindle-ai-export)** | Export a Kindle book you own as text, PDF, EPUB, or an AI-narrated audiobook. TypeScript. |
+| **[runi-os](https://github.com/BalalaikaDev/runi-os)** | Self-hosted OSINT &amp; data platform — 45+ intelligence sources fused into one provenance-tracked Neo4j graph, an AI investigation engine, and a modular dashboard. `Python` · ★1 |
+| **[osintkit](https://github.com/BalalaikaDev/osintkit)** | A uniform async interface over free and keyed OSINT data sources. `Python` |
+| **[kindle-ai-export](https://github.com/BalalaikaDev/kindle-ai-export)** | Export any Kindle book you own as text, PDF, EPUB, or as a custom, AI-narrated audiobook. 🔥 `TypeScript` · fork |
 | _data pipeline_ | _Coming soon — an automated, self-refreshing analytics pipeline (ingest → model → forecast → dashboard)._ |
+<!-- PROJECTS:END -->
 
 ### Reach me
 
