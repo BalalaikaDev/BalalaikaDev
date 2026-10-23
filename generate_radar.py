@@ -184,7 +184,14 @@ def build(contacts):
         k = c["size"]
         out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{5*k:.1f}" fill="{c["color"]}" filter="url(#glow)"/>')
         out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{11*k:.1f}" fill="none" stroke="{c["color"]}" stroke-opacity="0.6"/>')
-        out.append(f'<text x="{x+11*k+5:.1f}" y="{y+4:.1f}" font-size="{max(10, 11*k**0.5):.0f}" fill="{c["color"]}">{c["name"]}</text>')
+        # label on the OUTWARD side (away from centre) so labels never collide
+        fs = max(10, 11 * k ** 0.5)
+        if x >= CX:
+            lx, anchor = x + 11 * k + 5, "start"
+        else:
+            lx, anchor = x - 11 * k - 5, "end"
+        out.append(f'<text x="{lx:.1f}" y="{y+4:.1f}" text-anchor="{anchor}" '
+                   f'font-size="{fs:.0f}" fill="{c["color"]}">{c["name"]}</text>')
         out.append("</g>")
 
     # readout panel
