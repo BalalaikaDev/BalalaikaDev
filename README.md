@@ -19,6 +19,18 @@
   <img src="https://img.shields.io/badge/Neo4j-4581C3?style=flat&logo=neo4j&logoColor=white" alt="Neo4j">
 </p>
 
+<p align="center">
+  <b>💼 Open to working-student, internship &amp; data/BI roles — remote, or on-site in Finland 🇫🇮 / Germany 🇩🇪</b>
+</p>
+
+<p align="center">
+  <a href="https://www.linkedin.com/in/darius-genkinger-714564329/">
+    <img src="https://img.shields.io/badge/Hire%20me%20on-LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+  &nbsp;
+  <a href="mailto:xdariusxe@gmail.com">
+    <img src="https://img.shields.io/badge/Email-xdariusxe@gmail.com-ff2e97?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"></a>
+</p>
+
 ---
 
 ### What I do
@@ -50,6 +62,14 @@ Studying Electrical &amp; Automation Engineering, and building out this GitHub a
 | _data pipeline_ | _Coming soon — an automated, self-refreshing analytics pipeline (ingest → model → forecast → dashboard)._ |
 <!-- PROJECTS:END -->
 
-### Reach me
+### Hire me
 
-[LinkedIn](https://www.linkedin.com/in/darius-genkinger-714564329/)
+I'm looking for working-student, internship, and data/BI roles (remote, or on-site in Finland / Germany). The fastest way to reach me:
+
+<p align="center">
+  <a href="https://www.linkedin.com/in/darius-genkinger-714564329/">
+    <img src="https://img.shields.io/badge/LinkedIn-Darius%20Genkinger-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+  &nbsp;
+  <a href="mailto:xdariusxe@gmail.com?subject=Opportunity%20for%20Darius">
+    <img src="https://img.shields.io/badge/Email-xdariusxe@gmail.com-ff2e97?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"></a>
+</p>
