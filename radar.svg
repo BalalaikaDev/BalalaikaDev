@@ -79,14 +79,19 @@
 </g></g>
 <circle cx="200" cy="200" r="3" fill="#ff2e97" filter="url(#glow)"/>
 <g opacity="0.25"><animate attributeName="opacity" values="1;0.25;0.25" keyTimes="0;0.75;1" dur="6s" begin="2.85s" repeatCount="indefinite"/>
-<circle cx="210.6" cy="267.2" r="7.0" fill="#fcee0a" filter="url(#glow)"/>
-<circle cx="210.6" cy="267.2" r="15.4" fill="none" stroke="#fcee0a" stroke-opacity="0.6"/>
-<text x="231.0" y="271.2" font-size="13" fill="#fcee0a">runi-os</text>
+<circle cx="210.9" cy="268.8" r="7.0" fill="#fcee0a" filter="url(#glow)"/>
+<circle cx="210.9" cy="268.8" r="15.4" fill="none" stroke="#fcee0a" stroke-opacity="0.6"/>
+<text x="231.3" y="272.8" font-size="13" fill="#fcee0a">runi-os</text>
 </g>
 <g opacity="0.25"><animate attributeName="opacity" values="1;0.25;0.25" keyTimes="0;0.75;1" dur="6s" begin="5.53s" repeatCount="indefinite"/>
 <circle cx="168.1" cy="140.0" r="3.8" fill="#00ff9c" filter="url(#glow)"/>
 <circle cx="168.1" cy="140.0" r="8.2" fill="none" stroke="#00ff9c" stroke-opacity="0.6"/>
 <text x="181.3" y="144.0" font-size="10" fill="#00ff9c">osintkit</text>
+</g>
+<g opacity="0.25"><animate attributeName="opacity" values="1;0.25;0.25" keyTimes="0;0.75;1" dur="6s" begin="2.68s" repeatCount="indefinite"/>
+<circle cx="222.1" cy="264.3" r="3.8" fill="#ff8c00" filter="url(#glow)"/>
+<circle cx="222.1" cy="264.3" r="8.2" fill="none" stroke="#ff8c00" stroke-opacity="0.6"/>
+<text x="235.4" y="268.3" font-size="10" fill="#ff8c00">BalalaikaDev</text>
 </g>
 <g opacity="0.25"><animate attributeName="opacity" values="1;0.25;0.25" keyTimes="0;0.75;1" dur="6s" begin="0.83s" repeatCount="indefinite"/>
 <circle cx="253.4" cy="155.2" r="3.2" fill="#ff63b4" filter="url(#glow)"/>
@@ -96,19 +101,19 @@
 <text x="420" y="64" font-size="30" font-weight="700" fill="#ccd6f0" filter="url(#glow)">BALALAIKA<tspan fill="#ff2e97">DEV</tspan></text>
 <text x="420" y="90" font-size="12" fill="#18e0ff" letter-spacing="2">SIGINT CONSOLE // SCOPE ACTIVE<tspan>_<animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/></tspan></text>
 <line x1="420" y1="108" x2="820" y2="108" stroke="#18e0ff" stroke-opacity="0.3"/>
-<text x="420" y="134" font-size="11" fill="#6e79a8" letter-spacing="1">CONTACTS TRACKED: 03</text>
+<text x="420" y="134" font-size="11" fill="#6e79a8" letter-spacing="1">CONTACTS TRACKED: 04</text>
 <rect x="420" y="152" width="400" height="42" rx="6" fill="#0a0b1a" stroke="#fcee0a" stroke-opacity="0.35"/>
 <circle cx="436" cy="173" r="4" fill="#fcee0a" filter="url(#glow)"/>
 <text x="452" y="170" font-size="14" font-weight="700" fill="#fcee0a">runi-os</text>
-<text x="452" y="186" font-size="10" fill="#6e79a8" letter-spacing="1">PYTHON · ★1 · BRG 171° · RNG 0.40</text>
+<text x="452" y="186" font-size="10" fill="#6e79a8" letter-spacing="1">PYTHON · ★1 · BRG 171° · RNG 0.41</text>
 <rect x="420" y="208" width="400" height="42" rx="6" fill="#0a0b1a" stroke="#00ff9c" stroke-opacity="0.35"/>
 <circle cx="436" cy="229" r="4" fill="#00ff9c" filter="url(#glow)"/>
 <text x="452" y="226" font-size="14" font-weight="700" fill="#00ff9c">osintkit</text>
 <text x="452" y="242" font-size="10" fill="#6e79a8" letter-spacing="1">PYTHON · BRG 332° · RNG 0.40</text>
-<rect x="420" y="264" width="400" height="42" rx="6" fill="#0a0b1a" stroke="#ff63b4" stroke-opacity="0.35"/>
-<circle cx="436" cy="285" r="4" fill="#ff63b4" filter="url(#glow)"/>
-<text x="452" y="282" font-size="14" font-weight="700" fill="#ff63b4">kindle-ai-export</text>
-<text x="452" y="298" font-size="10" fill="#6e79a8" letter-spacing="1">REPO // FORK · BRG 050° · RNG 0.41</text>
+<rect x="420" y="264" width="400" height="42" rx="6" fill="#0a0b1a" stroke="#ff8c00" stroke-opacity="0.35"/>
+<circle cx="436" cy="285" r="4" fill="#ff8c00" filter="url(#glow)"/>
+<text x="452" y="282" font-size="14" font-weight="700" fill="#ff8c00">BalalaikaDev</text>
+<text x="452" y="298" font-size="10" fill="#6e79a8" letter-spacing="1">PYTHON · BRG 161° · RNG 0.40</text>
 <text x="420" y="364" font-size="10" fill="#6e79a8" letter-spacing="1">runi osint // 45+ sources // one graph</text>
 <rect width="860" height="400" rx="14" fill="url(#scan)"/>
 </svg>

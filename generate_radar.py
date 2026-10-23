@@ -76,7 +76,7 @@ def fetch_contacts() -> list[dict]:
         return []
 
     repos = [r for r in repos
-             if not r.get("archived") and r.get("name", "").lower() != USER.lower()]
+             if not r.get("archived")]
     if not repos:
         return []
     max_stars = max((r.get("stargazers_count", 0) for r in repos), default=0)

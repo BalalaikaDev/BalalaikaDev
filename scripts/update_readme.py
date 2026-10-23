@@ -26,6 +26,8 @@ OVERRIDES = {
     "runi-os": "Self-hosted OSINT &amp; data platform — 45+ intelligence sources "
                "fused into one provenance-tracked Neo4j graph, an AI investigation "
                "engine, and a modular dashboard.",
+    "BalalaikaDev": "This profile itself — the radar banner, live \"now\" card and "
+                    "this very table all regenerate from GitHub on a schedule.",
 }
 # Rows always appended after the live repos.
 PINNED_EXTRA = [
@@ -33,8 +35,8 @@ PINNED_EXTRA = [
      "_Coming soon — an automated, self-refreshing analytics pipeline "
      "(ingest → model → forecast → dashboard)._"),
 ]
-# Repos never shown (the profile repo renders this very README).
-HIDE = {USER.lower()}
+# Repos never shown.
+HIDE = set()  # include every repo, profile repo included
 
 
 def _repos() -> list[dict]:
