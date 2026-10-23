@@ -5,11 +5,11 @@
 <!-- LEGEND:START -->
 <p align="center">
   <sub>contacts (click to open):</sub><br>
-  <a href="https://github.com/BalalaikaDev/runi-os"><img src="https://img.shields.io/badge/runi--os-fcee0a?style=flat-square" alt="runi-os"></a>
-  <a href="https://github.com/BalalaikaDev/osintkit"><img src="https://img.shields.io/badge/osintkit-00ff9c?style=flat-square" alt="osintkit"></a>
-  <a href="https://github.com/BalalaikaDev/Ceddar_Shipping"><img src="https://img.shields.io/badge/Ceddar__Shipping-ff8c00?style=flat-square" alt="Ceddar_Shipping"></a>
-  <a href="https://github.com/BalalaikaDev/BalalaikaDev"><img src="https://img.shields.io/badge/BalalaikaDev-5cebff?style=flat-square" alt="BalalaikaDev"></a>
-  <a href="https://github.com/BalalaikaDev/kindle-ai-export"><img src="https://img.shields.io/badge/kindle--ai--export-ff63b4?style=flat-square" alt="kindle-ai-export"></a>
+  <a href="https://github.com/BalalaikaDev/runi-os"><img src="https://img.shields.io/badge/runi--os-ff63b4?style=flat-square" alt="runi-os"></a>
+  <a href="https://github.com/BalalaikaDev/BalalaikaDev"><img src="https://img.shields.io/badge/BalalaikaDev-fcee0a?style=flat-square" alt="BalalaikaDev"></a>
+  <a href="https://github.com/BalalaikaDev/Ceddar_Shipping"><img src="https://img.shields.io/badge/Ceddar__Shipping-00ff9c?style=flat-square" alt="Ceddar_Shipping"></a>
+  <a href="https://github.com/BalalaikaDev/osintkit"><img src="https://img.shields.io/badge/osintkit-ff8c00?style=flat-square" alt="osintkit"></a>
+  <a href="https://github.com/BalalaikaDev/kindle-ai-export"><img src="https://img.shields.io/badge/kindle--ai--export-5cebff?style=flat-square" alt="kindle-ai-export"></a>
 </p>
 <!-- LEGEND:END -->
 
@@ -67,10 +67,10 @@ Studying Electrical &amp; Automation Engineering, and building out this GitHub a
 | Project | What it is |
 | --- | --- |
 | **[runi-os](https://github.com/BalalaikaDev/runi-os)** | Self-hosted OSINT &amp; data platform — 45+ intelligence sources fused into one provenance-tracked Neo4j graph, an AI investigation engine, and a modular dashboard. `Python` · ★1 |
-| **[osintkit](https://github.com/BalalaikaDev/osintkit)** | A uniform async interface over free and keyed OSINT data sources. `Python` |
-| **[kindle-ai-export](https://github.com/BalalaikaDev/kindle-ai-export)** | Export any Kindle book you own. `TypeScript` · fork |
-| **[Ceddar_Shipping](https://github.com/BalalaikaDev/Ceddar_Shipping)** | Learn Python by running a shipping empire. `Python` |
 | **[BalalaikaDev](https://github.com/BalalaikaDev/BalalaikaDev)** | This profile itself — the radar banner, live "now" card and this very table all regenerate from GitHub on a schedule. `Python` |
+| **[Ceddar_Shipping](https://github.com/BalalaikaDev/Ceddar_Shipping)** | — `Python` |
+| **[osintkit](https://github.com/BalalaikaDev/osintkit)** | — `Python` |
+| **[kindle-ai-export](https://github.com/BalalaikaDev/kindle-ai-export)** | Export any Kindle book you own as text, PDF, EPUB, or as a custom, AI-narrated audiobook. 🔥 fork |
 | _data pipeline_ | _Coming soon — an automated, self-refreshing analytics pipeline (ingest → model → forecast → dashboard)._ |
 <!-- PROJECTS:END -->
 
