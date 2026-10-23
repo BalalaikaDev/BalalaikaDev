@@ -5,7 +5,7 @@
 <!-- LEGEND:START -->
 <p align="center">
   <sub>contacts — click to open</sub><br>
-  🔴 <a href="https://github.com/BalalaikaDev/runi-os">runi-os</a> &nbsp;&nbsp; 🟡 <a href="https://github.com/BalalaikaDev/Ceddar_Shipping">Ceddar_Shipping</a> &nbsp;&nbsp; 🟢 <a href="https://github.com/BalalaikaDev/BalalaikaDev">BalalaikaDev</a> &nbsp;&nbsp; 🟠 <a href="https://github.com/BalalaikaDev/osintkit">osintkit</a> &nbsp;&nbsp; 🔵 <a href="https://github.com/BalalaikaDev/kindle-ai-export">kindle-ai-export</a>
+  🔴 <a href="https://github.com/BalalaikaDev/runi-os">runi-os</a> &nbsp;&nbsp; 🟡 <a href="https://github.com/BalalaikaDev/BalalaikaDev">BalalaikaDev</a> &nbsp;&nbsp; 🟢 <a href="https://github.com/BalalaikaDev/Ceddar_Shipping">Ceddar_Shipping</a> &nbsp;&nbsp; 🟠 <a href="https://github.com/BalalaikaDev/osintkit">osintkit</a> &nbsp;&nbsp; 🔵 <a href="https://github.com/BalalaikaDev/kindle-ai-export">kindle-ai-export</a>
 </p>
 <!-- LEGEND:END -->
 
@@ -63,8 +63,8 @@ Studying Electrical &amp; Automation Engineering, and building out this GitHub a
 | Project | What it is |
 | --- | --- |
 | **[runi-os](https://github.com/BalalaikaDev/runi-os)** | Self-hosted OSINT &amp; data platform — 45+ intelligence sources fused into one provenance-tracked Neo4j graph, an AI investigation engine, and a modular dashboard. `Python` · ★1 |
-| **[Ceddar_Shipping](https://github.com/BalalaikaDev/Ceddar_Shipping)** | — `Python` |
 | **[BalalaikaDev](https://github.com/BalalaikaDev/BalalaikaDev)** | This profile itself — the radar banner, live "now" card and this very table all regenerate from GitHub on a schedule. `Python` |
+| **[Ceddar_Shipping](https://github.com/BalalaikaDev/Ceddar_Shipping)** | — `Python` |
 | **[osintkit](https://github.com/BalalaikaDev/osintkit)** | — `Python` |
 | **[kindle-ai-export](https://github.com/BalalaikaDev/kindle-ai-export)** | Export any Kindle book you own as text, PDF, EPUB, or as a custom, AI-narrated audiobook. 🔥 fork |
 | _data pipeline_ | _Coming soon — an automated, self-refreshing analytics pipeline (ingest → model → forecast → dashboard)._ |
