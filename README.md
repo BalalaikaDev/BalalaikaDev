@@ -32,7 +32,9 @@ Alongside the BI work I build full-stack software — the kind most analysts don
 Studying Electrical &amp; Automation Engineering, and building out this GitHub as the code-side companion to the data work. Open to **working-student, internship, and data/BI roles** — remote, or on-site in Finland or Germany.
 
 <!-- NOW:START -->
-<!-- This block is auto-updated by a scheduled GitHub Action. -->
+<p align="center">
+  <img src="./now.svg" alt="What I'm working on right now — live from GitHub activity" width="100%">
+</p>
 <!-- NOW:END -->
 
 ### Selected projects
