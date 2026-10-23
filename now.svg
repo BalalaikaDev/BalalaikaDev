@@ -13,15 +13,15 @@
 <text x="22" y="122" font-size="14" fill="#18e0ff">balalaika@dev</text>
 <text x="131" y="122" font-size="14" fill="#6e79a8">~ $ </text>
 <text x="165" y="122" font-size="14" fill="#ccd6f0">cat now.txt</text>
-<text x="22" y="148" font-size="14" fill="#fcee0a">→ currently: building in osintkit</text>
+<text x="22" y="148" font-size="14" fill="#fcee0a">→ currently: building in runi-os</text>
 <text x="22" y="174" font-size="14" fill="#18e0ff">balalaika@dev</text>
 <text x="131" y="174" font-size="14" fill="#6e79a8">~ $ </text>
 <text x="165" y="174" font-size="14" fill="#ccd6f0">tail -n 3 activity.log</text>
-<text x="22" y="200" font-size="14" fill="#6e79a8">  pushed 3 commits to osintkit</text>
-<text x="22" y="226" font-size="14" fill="#6e79a8">  opened PR #2 in runi-os</text>
-<text x="22" y="252" font-size="14" fill="#6e79a8">  created repository in osintkit</text>
+<text x="22" y="200" font-size="14" fill="#6e79a8">  opened PR #2 in runi-os</text>
+<text x="22" y="226" font-size="14" fill="#6e79a8">  opened PR #1 in runi-os</text>
+<text x="22" y="252" font-size="14" fill="#6e79a8">  pushed 0 commits to kindle-ai-export</text>
 <text x="22" y="278" font-size="14" fill="#18e0ff">balalaika@dev</text>
 <text x="131" y="278" font-size="14" fill="#6e79a8">~ $ </text>
 <text x="165" y="278" font-size="14" fill="#ff2e97">_<animate attributeName="opacity" values="1;0;1" dur="1.1s" repeatCount="indefinite"/></text>
-<text x="22" y="324" font-size="10" fill="#6e79a8" letter-spacing="1">updated 2026-10-23 03:49 UTC · auto-generated from GitHub activity</text>
+<text x="22" y="324" font-size="10" fill="#6e79a8" letter-spacing="1">updated 2026-10-23 03:56 UTC · auto-generated from GitHub activity</text>
 </svg>
