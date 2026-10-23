@@ -34,6 +34,9 @@ MAX_CARDS = 3         # listed in the readout panel (height-limited)
 
 # blip colours (avoid the cyan grid and magenta beam so contacts stand out)
 _PALETTE = ["#fcee0a", "#00ff9c", "#ff63b4", "#ff8c00", "#5cebff", "#b388ff"]
+# nearest emoji dot per palette colour, for the accessible README legend
+_DOT = {"#fcee0a": "🟡", "#00ff9c": "🟢", "#ff63b4": "🔴",
+        "#ff8c00": "🟠", "#5cebff": "🔵", "#b388ff": "🟣"}
 
 # Used when the API can't be reached (offline / rate-limited).
 FALLBACK = [
@@ -215,6 +218,7 @@ if __name__ == "__main__":
         fh.write(build(contacts))
     # drop a sidecar the README legend uses to render clickable, colour-matched links
     legend = [{"name": c["name"], "color": c["color"],
+               "emoji": _DOT.get(c["color"], "⚪"),
                "url": c.get("url", f"https://github.com/{USER}/{c['name']}")}
               for c in contacts]
     with open("radar.json", "w", encoding="utf-8") as fh:

@@ -16,7 +16,6 @@ import json
 import os
 import re
 import sys
-import urllib.parse
 import urllib.request
 
 USER = "BalalaikaDev"
@@ -101,15 +100,15 @@ def build_legend() -> str | None:
         legend = json.load(open("radar.json", encoding="utf-8"))
     except Exception:
         return None
-    chips = []
+    # Coloured dot + plain link: accessible by construction (GitHub's own link
+    # colour on the page background — never white-on-light), still colour-coded.
+    links = []
     for c in legend:
-        label = urllib.parse.quote(c["name"].replace("-", "--").replace("_", "__"))
-        color = c["color"].lstrip("#")
-        badge = f"https://img.shields.io/badge/{label}-{color}?style=flat-square"
-        chips.append(f'  <a href="{c["url"]}"><img src="{badge}" alt="{c["name"]}"></a>')
+        dot = c.get("emoji", "⚪")
+        links.append(f'{dot} <a href="{c["url"]}">{html.escape(c["name"])}</a>')
     return ('<p align="center">\n'
-            '  <sub>contacts (click to open):</sub><br>\n'
-            + "\n".join(chips) + "\n</p>")
+            '  <sub>contacts — click to open</sub><br>\n'
+            '  ' + " &nbsp;&nbsp; ".join(links) + "\n</p>")
 
 
 def _replace(text: str, start: str, end: str, body: str) -> str:
