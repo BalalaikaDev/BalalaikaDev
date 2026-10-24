@@ -86,12 +86,12 @@
 <g opacity="0.25"><animate attributeName="opacity" values="1;0.25;0.25" keyTimes="0;0.75;1" dur="6s" begin="1.78s" repeatCount="indefinite"/>
 <circle cx="273.2" cy="268.4" r="3.8" fill="#fcee0a" filter="url(#glow)"/>
 <circle cx="273.2" cy="268.4" r="8.2" fill="none" stroke="#fcee0a" stroke-opacity="0.6"/>
-<text x="286.4" y="272.4" text-anchor="start" font-size="10" fill="#fcee0a">BalalaikaDev</text>
+<text x="286.4" y="272.4" text-anchor="start" font-size="10" fill="#fcee0a">Ceddar_Shipping</text>
 </g>
 <g opacity="0.25"><animate attributeName="opacity" values="1;0.25;0.25" keyTimes="0;0.75;1" dur="6s" begin="2.98s" repeatCount="indefinite"/>
 <circle cx="201.5" cy="331.0" r="3.8" fill="#00ff9c" filter="url(#glow)"/>
 <circle cx="201.5" cy="331.0" r="8.2" fill="none" stroke="#00ff9c" stroke-opacity="0.6"/>
-<text x="214.7" y="335.0" text-anchor="start" font-size="10" fill="#00ff9c">Ceddar_Shipping</text>
+<text x="214.7" y="335.0" text-anchor="start" font-size="10" fill="#00ff9c">BalalaikaDev</text>
 </g>
 <g opacity="0.25"><animate attributeName="opacity" values="1;0.25;0.25" keyTimes="0;0.75;1" dur="6s" begin="4.18s" repeatCount="indefinite"/>
 <circle cx="135.7" cy="268.1" r="3.8" fill="#ff8c00" filter="url(#glow)"/>
@@ -99,9 +99,9 @@
 <text x="122.5" y="272.1" text-anchor="end" font-size="10" fill="#ff8c00">osintkit</text>
 </g>
 <g opacity="0.25"><animate attributeName="opacity" values="1;0.25;0.25" keyTimes="0;0.75;1" dur="6s" begin="5.38s" repeatCount="indefinite"/>
-<circle cx="152.9" cy="183.5" r="3.2" fill="#5cebff" filter="url(#glow)"/>
-<circle cx="152.9" cy="183.5" r="7.0" fill="none" stroke="#5cebff" stroke-opacity="0.6"/>
-<text x="140.9" y="187.5" text-anchor="end" font-size="10" fill="#5cebff">kindle-ai-export</text>
+<circle cx="151.9" cy="182.2" r="3.2" fill="#5cebff" filter="url(#glow)"/>
+<circle cx="151.9" cy="182.2" r="7.0" fill="none" stroke="#5cebff" stroke-opacity="0.6"/>
+<text x="139.9" y="186.2" text-anchor="end" font-size="10" fill="#5cebff">kindle-ai-export</text>
 </g>
 <text x="420" y="64" font-size="30" font-weight="700" fill="#ccd6f0" filter="url(#glow)">BALALAIKA<tspan fill="#ff2e97">DEV</tspan></text>
 <text x="420" y="90" font-size="12" fill="#18e0ff" letter-spacing="2">SIGINT CONSOLE // SCOPE ACTIVE<tspan>_<animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/></tspan></text>
@@ -113,11 +113,11 @@
 <text x="452" y="186" font-size="10" fill="#6e79a8" letter-spacing="1">PYTHON · ★1 · BRG 035° · RNG 0.40</text>
 <rect x="420" y="208" width="400" height="42" rx="6" fill="#0a0b1a" stroke="#fcee0a" stroke-opacity="0.35"/>
 <circle cx="436" cy="229" r="4" fill="#fcee0a" filter="url(#glow)"/>
-<text x="452" y="226" font-size="14" font-weight="700" fill="#fcee0a">BalalaikaDev</text>
+<text x="452" y="226" font-size="14" font-weight="700" fill="#fcee0a">Ceddar_Shipping</text>
 <text x="452" y="242" font-size="10" fill="#6e79a8" letter-spacing="1">PYTHON · BRG 107° · RNG 0.45</text>
 <rect x="420" y="264" width="400" height="42" rx="6" fill="#0a0b1a" stroke="#00ff9c" stroke-opacity="0.35"/>
 <circle cx="436" cy="285" r="4" fill="#00ff9c" filter="url(#glow)"/>
-<text x="452" y="282" font-size="14" font-weight="700" fill="#00ff9c">Ceddar_Shipping</text>
+<text x="452" y="282" font-size="14" font-weight="700" fill="#00ff9c">BalalaikaDev</text>
 <text x="452" y="298" font-size="10" fill="#6e79a8" letter-spacing="1">PYTHON · BRG 179° · RNG 0.50</text>
 <rect x="420" y="320" width="400" height="42" rx="6" fill="#0a0b1a" stroke="#ff8c00" stroke-opacity="0.35"/>
 <circle cx="436" cy="341" r="4" fill="#ff8c00" filter="url(#glow)"/>
@@ -126,7 +126,7 @@
 <rect x="420" y="376" width="400" height="42" rx="6" fill="#0a0b1a" stroke="#5cebff" stroke-opacity="0.35"/>
 <circle cx="436" cy="397" r="4" fill="#5cebff" filter="url(#glow)"/>
 <text x="452" y="394" font-size="14" font-weight="700" fill="#5cebff">kindle-ai-export</text>
-<text x="452" y="410" font-size="10" fill="#6e79a8" letter-spacing="1">REPO // FORK · BRG 323° · RNG 0.46</text>
+<text x="452" y="410" font-size="10" fill="#6e79a8" letter-spacing="1">REPO // FORK · BRG 323° · RNG 0.47</text>
 <text x="420" y="456" font-size="10" fill="#6e79a8" letter-spacing="1">runi osint // 45+ sources // one graph</text>
 <rect width="860" height="492" rx="14" fill="url(#scan)"/>
 </svg>
