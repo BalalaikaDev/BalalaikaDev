@@ -99,9 +99,9 @@
 <text x="119.2" y="273.2" text-anchor="end" font-size="10" fill="#ff8c00">osintkit</text>
 </g>
 <g opacity="0.25"><animate attributeName="opacity" values="1;0.25;0.25" keyTimes="0;0.75;1" dur="6s" begin="5.38s" repeatCount="indefinite"/>
-<circle cx="150.9" cy="180.8" r="3.2" fill="#5cebff" filter="url(#glow)"/>
-<circle cx="150.9" cy="180.8" r="7.0" fill="none" stroke="#5cebff" stroke-opacity="0.6"/>
-<text x="138.9" y="184.8" text-anchor="end" font-size="10" fill="#5cebff">kindle-ai-export</text>
+<circle cx="149.9" cy="179.5" r="3.2" fill="#5cebff" filter="url(#glow)"/>
+<circle cx="149.9" cy="179.5" r="7.0" fill="none" stroke="#5cebff" stroke-opacity="0.6"/>
+<text x="137.8" y="183.5" text-anchor="end" font-size="10" fill="#5cebff">kindle-ai-export</text>
 </g>
 <text x="420" y="64" font-size="30" font-weight="700" fill="#ccd6f0" filter="url(#glow)">BALALAIKA<tspan fill="#ff2e97">DEV</tspan></text>
 <text x="420" y="90" font-size="12" fill="#18e0ff" letter-spacing="2">SIGINT CONSOLE // SCOPE ACTIVE<tspan>_<animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/></tspan></text>
@@ -126,7 +126,7 @@
 <rect x="420" y="376" width="400" height="42" rx="6" fill="#0a0b1a" stroke="#5cebff" stroke-opacity="0.35"/>
 <circle cx="436" cy="397" r="4" fill="#5cebff" filter="url(#glow)"/>
 <text x="452" y="394" font-size="14" font-weight="700" fill="#5cebff">kindle-ai-export</text>
-<text x="452" y="410" font-size="10" fill="#6e79a8" letter-spacing="1">REPO // FORK · BRG 323° · RNG 0.48</text>
+<text x="452" y="410" font-size="10" fill="#6e79a8" letter-spacing="1">REPO // FORK · BRG 323° · RNG 0.49</text>
 <text x="420" y="456" font-size="10" fill="#6e79a8" letter-spacing="1">runi osint // 45+ sources // one graph</text>
 <rect width="860" height="492" rx="14" fill="url(#scan)"/>
 </svg>
